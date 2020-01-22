@@ -31,11 +31,25 @@ class Player
     end
   end
 
+  def add_guess_letter(letter)
+    @guessed_letters.push(letter)
+  end
 
+    def change_revealed_string(guessed_letter, hidden_word_array, player)
+      if hidden_word_array.include?(guessed_letter)
+        index = 0
+        for letter in hidden_word_array
+          if letter == guessed_letter
+            @revealed_string[index] = letter
+          end
+          index += 1
+          add_guess_letter(guessed_letter)
+        end
 
-
-
-
-
+      else
+        player.remove_life()
+        add_guess_letter(guessed_letter)
+      end
+    end
 
 end
