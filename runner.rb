@@ -29,5 +29,10 @@ while secret_word != player.display_revealed_string
   puts "Your guessed letters are #{player.check_guessed_letters}"
   puts ""
   game.is_game_won(secret_word, player.display_revealed_string)
-  game.is_game_lost(player, player.check_lives)
+  
+  if player.check_lives == 0
+    p "Sorry, you ran out of lives. Try again!".upcase()
+    puts ""
+    return
+  end
 end

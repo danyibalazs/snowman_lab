@@ -4,11 +4,10 @@ class Game
     @guessed_letters = []
   end
 
-  def is_game_lost(player, lives)
+  def is_game_lost(player)
     if player.check_lives == 0
       p "Sorry, you ran out of lives. Try again!".upcase()
       puts ""
-
     end
     return
   end
