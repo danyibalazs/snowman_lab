@@ -16,11 +16,13 @@ player.get_hidden_word(hidden_string.get_hidden_string)
 hidden_word_array = hidden_string.get_hidden_string
 game = Game.new()
 
+puts "This is your string: #{player.display_revealed_string}"
+
 while secret_word != player.display_revealed_string
   puts ""
   puts "Please enter a letter to check"
   puts ""
-  guessed_letter = gets.chomp()
+  guessed_letter = gets.chomp().downcase()
   player.change_revealed_string(guessed_letter, hidden_word_array, player)
   puts ""
   puts "Your guessed word is #{player.display_revealed_string}"
@@ -29,7 +31,7 @@ while secret_word != player.display_revealed_string
   puts "Your guessed letters are #{player.check_guessed_letters}"
   puts ""
   game.is_game_won(secret_word, player.display_revealed_string)
-  
+
   if player.check_lives == 0
     p "Sorry, you ran out of lives. Try again!".upcase()
     puts ""

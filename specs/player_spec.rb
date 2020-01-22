@@ -45,18 +45,11 @@ class TestPlayer < Minitest::Test
     assert_equal("****o", @player.display_revealed_string)
   end
 
-def test_guessed_wrong_letter
-  @player.get_hidden_word(@hidden_string)
-  @player.change_revealed_string("g", @hidden_string, @player)
-  assert_equal("*****", @player.display_revealed_string)
-  assert_equal(5, @player.check_lives)
-  assert_equal(["g"], @player.check_guessed_letters)
-end
-
-
-
-
-
-
-
+  def test_guessed_wrong_letter
+    @player.get_hidden_word(@hidden_string)
+    @player.change_revealed_string("g", @hidden_string, @player)
+    assert_equal("*****", @player.display_revealed_string)
+    assert_equal(5, @player.check_lives)
+    assert_equal(["g"], @player.check_guessed_letters)
+  end
 end
