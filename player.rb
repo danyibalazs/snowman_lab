@@ -42,10 +42,9 @@ class Player
           if letter == guessed_letter
             @revealed_string[index] = letter
           end
-          index += 1
-          add_guess_letter(guessed_letter)
+          index += 1  
         end
-
+        add_guess_letter(guessed_letter)
       else
         player.remove_life()
         add_guess_letter(guessed_letter)
